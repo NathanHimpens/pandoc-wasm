@@ -15,6 +15,11 @@
  * software. If not, they may be obtained at the above URLs.
  */
 
+/* WASI doesn't support pthread_exit, so disable threading */
+#if defined(__wasi__) || defined(__wasm__) || defined(__wasm32__) || defined(__EMSCRIPTEN__)
+#define ARGON2_NO_THREADS 1
+#endif
+
 #if !defined(ARGON2_NO_THREADS)
 
 #include "thread.h"

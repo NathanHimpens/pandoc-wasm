@@ -12,6 +12,8 @@ packages: patches/basement-0.0.16
           patches/memory-0.18.0
           patches/network-3.2.8.0
           patches/cborg-0.2.10.0
+          patches/crypton-1.0.5
+          patches/crypton-1.0.5
 
 -- Disable problematic features for WASM
 package pandoc-cli
@@ -33,6 +35,10 @@ constraints:
 -- Enable _GNU_SOURCE for network package C code on WASI
 package network
   cc-options: -D_GNU_SOURCE
+
+-- Disable threading in crypton's argon2 (WASI doesn't support pthread_exit)
+package crypton
+  cc-options: -DARGON2_NO_THREADS
 
 -- Optimization
 program-options
