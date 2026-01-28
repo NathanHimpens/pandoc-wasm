@@ -119,14 +119,17 @@ This is how Ralph maintains continuity across iterations.
 - tls, http-client-tls, citeproc, typst
 
 **Currently Compiling:**
-- basement-0.0.16 (dynamic libs)
-- cborg-0.2.10.0 (dynamic libs)
-- iproute-1.7.15
-- crypton-x509-store-1.6.14
+- cborg-0.2.10.0 (still running with 110% CPU, ~3min)
 
 **Next Steps:**
-- Wait for build to complete (~10-20 more min)
-- Once done, test WASM binary with wasmtime
+- Wait for cborg to complete
+- Then pandoc-cli should link
+- Test WASM binary with wasmtime
+
+**Build Command to Resume:**
+```bash
+source ~/.ghc-wasm/env && wasm32-wasi-cabal build pandoc-cli
+```
 
 ### 2026-01-28 15:24:24
 **Session 2 ended** - 🔄 Context rotation (token limit reached)
