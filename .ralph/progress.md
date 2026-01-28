@@ -106,10 +106,10 @@ This is how Ralph maintains continuity across iterations.
 - All stub implementations in place
 
 **Current Status:**
-- Full pandoc-cli build in progress
+- Full pandoc-cli build in progress (still running ~20 min)
 - Build restarted at 15:08 UTC after fixing RTS options issue
-- 37 packages built so far including pandoc-3.8.3 (main library!)
-- Waiting for pandoc-cli executable to link
+- 37 packages registered, compiling remaining libraries
+- Dynamic library building is slow for WASM target
 
 **Packages Built:**
 - basement, memory, network (patched)
@@ -118,9 +118,15 @@ This is how Ralph maintains continuity across iterations.
 - pandoc-3.8.3 library
 - tls, http-client-tls, citeproc, typst
 
+**Currently Compiling:**
+- basement-0.0.16 (dynamic libs)
+- cborg-0.2.10.0 (dynamic libs)
+- iproute-1.7.15
+- crypton-x509-store-1.6.14
+
 **Next Steps:**
-- Wait for pandoc-cli linking to complete
-- Test WASM binary with wasmtime
+- Wait for build to complete (~10-20 more min)
+- Once done, test WASM binary with wasmtime
 
 ### 2026-01-28 15:24:24
 **Session 2 ended** - 🔄 Context rotation (token limit reached)
