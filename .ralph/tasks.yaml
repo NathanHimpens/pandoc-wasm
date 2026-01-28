@@ -3,7 +3,105 @@
 # DO NOT EDIT - regenerated on task file change
 
 source_file: RALPH_TASK.md
-source_mtime: 1769607780
-generated_at: 2026-01-28T13:44:22Z
+source_mtime: 1769608961
+generated_at: 2026-01-28T14:13:19Z
 
 tasks:
+  - id: "line_14"
+    line_number: 14
+    status: completed
+    parallel_group: 999999
+    description: Run bootstrap.sh to install GHC WASM compiler
+    indent_level: 0
+    raw_marker: -
+  - id: "line_15"
+    line_number: 15
+    status: completed
+    parallel_group: 999999
+    description: Verify wasm32-wasi-ghc --version works (9.12.3.20251231)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_18"
+    line_number: 18
+    status: pending
+    parallel_group: 999999
+    description: Create cabal.project with WASM-compatible configuration
+    indent_level: 0
+    raw_marker: -
+  - id: "line_19"
+    line_number: 19
+    status: pending
+    parallel_group: 999999
+    description: Run wasm32-wasi-cabal update
+    indent_level: 0
+    raw_marker: -
+  - id: "line_20"
+    line_number: 20
+    status: pending
+    parallel_group: 999999
+    description: Build pandoc-cli with wasm32-wasi-cabal
+    indent_level: 0
+    raw_marker: -
+  - id: "line_23"
+    line_number: 23
+    status: pending
+    parallel_group: 999999
+    description: Address network/HTTP dependency issues
+    indent_level: 0
+    raw_marker: -
+  - id: "line_24"
+    line_number: 24
+    status: pending
+    parallel_group: 999999
+    description: Address process/unix dependency issues
+    indent_level: 0
+    raw_marker: -
+  - id: "line_25"
+    line_number: 25
+    status: pending
+    parallel_group: 999999
+    description: Create minimal pandoc wrapper if full build fails
+    indent_level: 0
+    raw_marker: -
+  - id: "line_28"
+    line_number: 28
+    status: pending
+    parallel_group: 999999
+    description: Create test markdown files (small.md, medium.md, large.md)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_29"
+    line_number: 29
+    status: pending
+    parallel_group: 999999
+    description: pandoc.wasm binary exists (expect 50-100MB)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_30"
+    line_number: 30
+    status: pending
+    parallel_group: 999999
+    description: Successfully convert small.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_31"
+    line_number: 31
+    status: pending
+    parallel_group: 999999
+    description: Successfully convert medium.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_32"
+    line_number: 32
+    status: pending
+    parallel_group: 999999
+    description: Successfully convert large.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_33"
+    line_number: 33
+    status: pending
+    parallel_group: 999999
+    description: Output PPTX files are valid
+    indent_level: 0
+    raw_marker: -

@@ -45,3 +45,9 @@ This is how Ralph maintains continuity across iterations.
 **Next Steps:**
 - Try building minimal pandoc wrapper without http-client-tls dependency
 - Or find prebuilt WASM-compatible versions of basement/crypton
+
+### 2026-01-28 15:13:19
+**Session 1 ended** - 🔄 Context rotation (token limit reached)
+
+### 2026-01-28 15:13:21
+**Session 2 started** (model: opus-4.5-thinking)
