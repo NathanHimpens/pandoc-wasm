@@ -26,7 +26,8 @@ Compile Pandoc to WebAssembly for converting Markdown to PPTX (and other formats
 - [x] Address digest zlib dependency (disabled pkg-config)
 - [x] Address cborg 32-bit/GHC 9.12 issues (patched Magic.hs, Decoding.hs, Read.hs)
 - [x] Address crypton argon2 pthread issue (added ARGON2_NO_THREADS define)
-- [ ] Address xml-conduit Custom build type issue (BLOCKER - needs host toolchain for Setup.hs)
+- [x] Address xml-conduit Custom build type issue (patched to Simple build type)
+- [x] Address pandoc-cli threaded RTS issue (removed -threaded flag)
 
 ### Phase 3: Validation
 - [ ] Create test markdown files (small.md, medium.md, large.md)

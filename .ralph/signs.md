@@ -68,3 +68,9 @@
 **Symptom**: Error "call to undeclared function 'pthread_exit'"  
 **Root Cause**: WASI doesn't support pthread_exit, but crypton's argon2 code uses pthreads
 **Fix**: Add `#define ARGON2_NO_THREADS 1` at top of cbits/argon2/thread.h and thread.c for __wasi__ or __wasm__
+
+### Sign: pandoc-cli requires removing -threaded for WASM
+**Date**: 2026-01-28
+**Symptom**: Linker error "unable to find library -lHSrts-1.0.3_thr"
+**Root Cause**: pandoc-cli.cabal has `-threaded` in ghc-options, but WASM GHC doesn't have threaded RTS
+**Fix**: Patch pandoc-cli.cabal to remove `-threaded` from the ghc-options line

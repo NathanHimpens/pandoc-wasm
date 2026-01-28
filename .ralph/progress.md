@@ -152,20 +152,21 @@ This is how Ralph maintains continuity across iterations.
 - cborg: ✅ Built successfully
 - crypton: ✅ Built successfully  
 - network: ✅ Built successfully
-- tls: ✅ Built successfully (required single-threaded GHC)
-- Many other packages: ✅ Built successfully
-- xml-conduit: ❌ BLOCKER - Custom setup type causes cross-compilation failure
+- tls: ✅ Built successfully
+- xml-conduit: ✅ Patched (Custom → Simple build type) and built
+- pandoc-cli: ✅ Patched (removed -threaded flag)
+- typst: 🔄 Currently linking
+- citeproc: 🔄 Currently compiling
+- Full build: 🔄 IN PROGRESS
 
-**Blocker Encountered:**
-xml-conduit-1.10.1.0 uses `build-type: Custom` which means its Setup.hs must be
-compiled and run on the host. But cabal is trying to build it for WASM target,
-causing "unable to find library -lHSrts-1.0.3_thr" error.
+**Blockers Resolved:**
+1. xml-conduit Custom build type → patched to Simple (doctests not needed)
+2. pandoc-cli -threaded flag → removed (WASM doesn't have threaded RTS)
 
 **Next Steps for Next Agent:**
-1. Investigate cabal options for cross-compilation setup dependencies
-2. Try patching xml-conduit to use Simple build type if possible
-3. Or explore using --allow-boot-library-installs or similar workarounds
-4. Alternative: build a minimal pandoc without XML features
+1. Monitor build progress - it's actively compiling/linking
+2. If successful, test the pandoc.wasm binary with wasmtime
+3. Create test markdown files and verify PPTX conversion works
 
 ### 2026-01-28 15:31:23
 **Session 3 ended** - 🔄 Context rotation (token limit reached)
