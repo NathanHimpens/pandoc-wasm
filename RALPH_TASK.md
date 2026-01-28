@@ -24,7 +24,9 @@ Compile Pandoc to WebAssembly for converting Markdown to PPTX (and other formats
 - [x] Address memory WASM/GHC 9.12 compatibility (patched CompatPrim64.hs, PtrMethods.hs)
 - [x] Address network WASI compatibility (added stubs for getaddrinfo/getnameinfo, structs, CMSG macros)
 - [x] Address digest zlib dependency (disabled pkg-config)
-- [ ] Address any remaining dependency issues (monitoring build)
+- [x] Address cborg 32-bit/GHC 9.12 issues (patched Magic.hs, Decoding.hs, Read.hs)
+- [x] Address crypton argon2 pthread issue (added ARGON2_NO_THREADS define)
+- [ ] Address xml-conduit Custom build type issue (BLOCKER - needs host toolchain for Setup.hs)
 
 ### Phase 3: Validation
 - [ ] Create test markdown files (small.md, medium.md, large.md)
@@ -45,3 +47,7 @@ source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm -- -f markdown -t ppt
 - Use `+embed_data_files` to include templates in binary
 - wasmtime needs `--dir .` to access host filesystem
 - No external processes or network in WASI
+- Use `--ghc-options="-j1"` to avoid parallel compilation race conditions
+- Packages with `build-type: Custom` are problematic for cross-compilation
+  - xml-conduit uses Custom build type, causing setup linking failures
+  - Next step: investigate cabal setup-depends for cross-compilation or patch xml-conduit
