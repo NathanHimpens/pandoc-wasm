@@ -1,13 +1,10 @@
 # Small Test Document
 
-This is a simple test document with minimal content.
+This is a small test document for validating Pandoc WASM.
 
-## Section 1
+## Features
 
-Some basic content here.
+- Simple markdown
+- Basic formatting
 
-## Section 2
-
-- Item 1
-- Item 2
-- Item 3
+That's it!

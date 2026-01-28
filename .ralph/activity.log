@@ -550,3 +550,25 @@ ls -la small.md medium.md large.md → exit 0
 [16:55:54] 🟡 READ /Users/nathanhimpens/Documents/klara/code/pandoc-wasm/RALPH_TASK.md (55 lines, ~5.3KB)
 [16:56:11] 🟡 TOKENS: 51368 / 80000 (64%) [read:190KB write:0KB assist:7KB shell:0KB]
 [16:56:25] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && git add -A && git status → exit 0
+[16:56:31] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && git reset HEAD pandoc.wasm large.pptx medium.pptx small.pptx test.pptx dist-newstyle/ && echo "pandoc.wasm" >> .gitignore && echo "*.pptx" >> .gitignore && git add .gitignore .ralph/ RALPH_TASK.md small.md medium.md large.md patches/ && git status → exit 0
+[16:56:39] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && git diff --cached --stat | head -20 && git commit -m "$(cat <<'EOF'
+ralph: COMPLETE - pandoc.wasm builds and converts MD to PPTX
+
+Successfully compiled Pandoc 3.8.3 to WebAssembly (166MB binary).
+
+Key fixes in this session:
+- Added socket function stubs to network package (setsockopt, connect, etc.)
+- All PPTX conversion tests pass
+
+Test results:
+- small.md -> small.pptx (27KB)
+- medium.md -> medium.pptx (29KB)  
+- large.md -> large.pptx (30KB)
+
+Binary runs with: wasmtime run --dir . pandoc.wasm -o out.pptx input.md
+EOF
+)" → exit 0
+[16:56:41] 🟡 TOKENS: 51392 / 80000 (64%) [read:190KB write:0KB assist:7KB shell:0KB]
+[16:56:42] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && git push 2>&1 | head -10 → exit 0
+[16:56:52] 🟡 SESSION END: 5121724ms, ~51704 tokens used
+[16:56:52] 🟡 TOKENS: 51704 / 80000 (64%) [read:190KB write:0KB assist:8KB shell:0KB]

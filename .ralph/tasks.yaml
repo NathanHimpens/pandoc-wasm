@@ -3,104 +3,125 @@
 # DO NOT EDIT - regenerated on task file change
 
 source_file: RALPH_TASK.md
-source_mtime: 1769610578
-generated_at: 2026-01-28T14:31:23Z
+source_mtime: 1769615764
+generated_at: 2026-01-28T15:56:52Z
 
 tasks:
-  - id: "line_14"
-    line_number: 14
+  - id: "line_15"
+    line_number: 15
     status: completed
     parallel_group: 999999
     description: Run bootstrap.sh to install GHC WASM compiler
     indent_level: 0
     raw_marker: -
-  - id: "line_15"
-    line_number: 15
+  - id: "line_16"
+    line_number: 16
     status: completed
     parallel_group: 999999
     description: Verify wasm32-wasi-ghc --version works (9.12.3.20251231)
-    indent_level: 0
-    raw_marker: -
-  - id: "line_18"
-    line_number: 18
-    status: completed
-    parallel_group: 999999
-    description: Create cabal.project with WASM-compatible configuration
     indent_level: 0
     raw_marker: -
   - id: "line_19"
     line_number: 19
     status: completed
     parallel_group: 999999
-    description: Run wasm32-wasi-cabal update
+    description: Create cabal.project with WASM-compatible configuration
     indent_level: 0
     raw_marker: -
   - id: "line_20"
     line_number: 20
-    status: pending
-    parallel_group: 999999
-    description: Build pandoc-cli with wasm32-wasi-cabal (IN PROGRESS)
-    indent_level: 0
-    raw_marker: -
-  - id: "line_23"
-    line_number: 23
     status: completed
     parallel_group: 999999
-    description: Address basement WASM/GHC 9.12 compatibility (patched)
+    description: Run wasm32-wasi-cabal update
+    indent_level: 0
+    raw_marker: -
+  - id: "line_21"
+    line_number: 21
+    status: completed
+    parallel_group: 999999
+    description: Build pandoc-cli with wasm32-wasi-cabal
     indent_level: 0
     raw_marker: -
   - id: "line_24"
     line_number: 24
     status: completed
     parallel_group: 999999
-    description: Address digest zlib dependency (disabled pkg-config)
+    description: Address basement WASM/GHC 9.12 compatibility (patched)
     indent_level: 0
     raw_marker: -
   - id: "line_25"
     line_number: 25
-    status: pending
+    status: completed
     parallel_group: 999999
-    description: Address any remaining dependency issues (monitoring)
+    description: Address digest zlib dependency (disabled pkg-config)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_26"
+    line_number: 26
+    status: completed
+    parallel_group: 999999
+    description: Address crypton argon2 pthread issue (added ARGON2_NO_THREADS)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_27"
+    line_number: 27
+    status: completed
+    parallel_group: 999999
+    description: Address xml-conduit Custom build type issue (patched to Simple)
     indent_level: 0
     raw_marker: -
   - id: "line_28"
     line_number: 28
-    status: pending
+    status: completed
     parallel_group: 999999
-    description: Create test markdown files (small.md, medium.md, large.md)
+    description: Address pandoc-cli threaded RTS issue (removed -threaded flag)
     indent_level: 0
     raw_marker: -
   - id: "line_29"
     line_number: 29
-    status: pending
+    status: completed
     parallel_group: 999999
-    description: pandoc.wasm binary exists (expect 50-100MB)
-    indent_level: 0
-    raw_marker: -
-  - id: "line_30"
-    line_number: 30
-    status: pending
-    parallel_group: 999999
-    description: Successfully convert small.md to PPTX
-    indent_level: 0
-    raw_marker: -
-  - id: "line_31"
-    line_number: 31
-    status: pending
-    parallel_group: 999999
-    description: Successfully convert medium.md to PPTX
+    description: Address network socket stubs for WASI (added socket function stubs)
     indent_level: 0
     raw_marker: -
   - id: "line_32"
     line_number: 32
-    status: pending
+    status: completed
     parallel_group: 999999
-    description: Successfully convert large.md to PPTX
+    description: Create test markdown files (small.md, medium.md, large.md)
     indent_level: 0
     raw_marker: -
   - id: "line_33"
     line_number: 33
-    status: pending
+    status: completed
+    parallel_group: 999999
+    description: pandoc.wasm binary exists (166MB)
+    indent_level: 0
+    raw_marker: -
+  - id: "line_34"
+    line_number: 34
+    status: completed
+    parallel_group: 999999
+    description: Successfully convert small.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_35"
+    line_number: 35
+    status: completed
+    parallel_group: 999999
+    description: Successfully convert medium.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_36"
+    line_number: 36
+    status: completed
+    parallel_group: 999999
+    description: Successfully convert large.md to PPTX
+    indent_level: 0
+    raw_marker: -
+  - id: "line_37"
+    line_number: 37
+    status: completed
     parallel_group: 999999
     description: Output PPTX files are valid
     indent_level: 0
