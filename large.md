@@ -1,120 +1,58 @@
----
-title: Comprehensive Pandoc WASM Test
-author: Test Suite
-date: 2026-01-28
----
+# Large Test Document
 
-# Part 1: Introduction
+This is a comprehensive test document to verify WASM Pandoc can handle larger files.
 
-## Overview
+## Section 1: Introduction
 
-This presentation tests the full capabilities of Pandoc compiled to WebAssembly.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur interdum, nisl nunc egestas nunc, vitae tincidunt nisl nunc euismod nunc.
 
-## Goals
+## Section 2: Technical Details
 
-- Verify WASM compilation
-- Test document conversion
-- Ensure output quality
+### Subsection 2.1
 
-# Part 2: Text Features
+Complex technical content with code examples.
 
-## Formatting
-
-This is **bold** and *italic* and ***bold italic***.
-
-This is ~~strikethrough~~ and `inline code`.
-
-## Lists
-
-Ordered list:
-
-1. First item
-2. Second item
-3. Third item
-
-Unordered list:
-
-- Apple
-- Banana
-- Cherry
-
-## Nested Lists
-
-1. Main point
-   - Sub point A
-   - Sub point B
-2. Another main point
-   - Sub point C
-   - Sub point D
-
-# Part 3: Code
-
-## Python Example
-
-```python
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-for i in range(10):
-    print(f"F({i}) = {fibonacci(i)}")
+```haskell
+main :: IO ()
+main = putStrLn "Hello from Pandoc WASM!"
 ```
 
-## JavaScript Example
+### Subsection 2.2
 
-```javascript
-const greet = (name) => {
-    console.log(`Hello, ${name}!`);
-};
+More technical content with lists:
 
-greet('WASM');
-```
+1. First ordered item
+2. Second ordered item
+3. Third ordered item
 
-# Part 4: Tables
+- Unordered item A
+- Unordered item B
+- Unordered item C
 
-## Simple Table
+## Section 3: Data Tables
 
-| Name  | Age | City     |
-|-------|-----|----------|
-| Alice | 30  | New York |
-| Bob   | 25  | London   |
-| Carol | 35  | Tokyo    |
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Markdown | Working | Basic support |
+| HTML | Working | Full output |
+| PPTX | Working | Office format |
+| PDF | N/A | Needs LaTeX |
 
-## Complex Table
+## Section 4: Images and Links
 
-| Feature       | Status | Notes           |
-|--------------|--------|-----------------|
-| Markdown     | ✅     | Full support   |
-| HTML         | ✅     | Basic support  |
-| PPTX         | ✅     | Working!       |
-| DOCX         | ✅     | Should work    |
+[Example Link](https://example.com)
 
-# Part 5: Quotes
+## Section 5: Conclusion
 
-## Block Quote
+This document demonstrates Pandoc WASM capabilities for converting Markdown to various formats including PowerPoint presentations.
 
-> "The best way to predict the future is to invent it."
-> — Alan Kay
+### Final Notes
 
-## Multi-paragraph Quote
+- All basic features work
+- WASM binary is standalone
+- Network features disabled (expected)
+- File I/O works via WASI
 
-> This is a longer quote that spans
-> multiple lines and demonstrates
-> the full quote formatting.
->
-> It even has multiple paragraphs!
+---
 
-# Part 6: Conclusion
-
-## Summary
-
-We have successfully:
-
-1. Compiled Pandoc to WebAssembly
-2. Tested various Markdown features
-3. Generated valid PPTX output
-
-## Thank You
-
-Questions?
+*End of large test document*

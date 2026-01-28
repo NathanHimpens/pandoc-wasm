@@ -42,6 +42,12 @@
 **Root Cause**: GHC WASM doesn't have a threaded runtime system
 **Fix**: Patch the cabal file to remove `-threaded` from ghc-options. Example: pandoc-cli has `-threaded` hardcoded.
 
+### Sign: Network package needs socket function stubs for WASI
+**Date**: 2026-01-28
+**Symptom**: Final link fails with "undefined symbol: setsockopt, connect, socket"
+**Root Cause**: WASI doesn't provide full BSD socket API by default
+**Fix**: Add stub implementations in cbits/HsNet.c that return ENOSYS. Functions: setsockopt, getsockopt, connect, socket, bind, listen, accept, send, recv, sendto, recvfrom, getpeername, getsockname, shutdown.
+
 ### Sign: Custom Build Types Break Cross-Compilation
 **Date**: 2026-01-28
 **Symptom**: Error "unable to find library -lHSrts-1.0.3_thr" when building setup executable

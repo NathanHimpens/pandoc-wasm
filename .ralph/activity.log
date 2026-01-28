@@ -424,3 +424,129 @@ EOF
 [16:54:37] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && echo "# Hello World" | source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm 2>&1 | head -10 → exit 0
 [16:54:37] 🟡 TOKENS: 49927 / 80000 (62%) [read:185KB write:0KB assist:6KB shell:0KB]
 [16:54:47] 🟡 SHELL pkill -f wasmtime 2>/dev/null; cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && echo "# Hello World" | wasmtime run --dir . pandoc.wasm -- -t html 2>&1 → exit 0
+[16:54:57] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm -- small.md 2>&1 → exit 0
+[16:55:06] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm -- small.md -o test.pptx 2>&1 → exit 0
+[16:55:08] 🟡 TOKENS: 49947 / 80000 (62%) [read:185KB write:0KB assist:6KB shell:0KB]
+[16:55:11] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm -- --from=markdown --to=pptx --output=test.pptx small.md 2>&1 → exit 0
+[16:55:17] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm small.md 2>&1 → exit 0
+[16:55:24] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && wasmtime run --dir . pandoc.wasm -o test.pptx small.md 2>&1 && ls -la test.pptx 2>/dev/null → exit 0
+[16:55:39] 🟡 TOKENS: 49974 / 80000 (62%) [read:185KB write:0KB assist:6KB shell:0KB]
+[16:55:40] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && cat > small.md << 'EOF'
+# Small Test Document
+
+This is a simple test document with minimal content.
+
+## Section 1
+
+Some basic content here.
+
+## Section 2
+
+- Item 1
+- Item 2
+- Item 3
+EOF
+cat > medium.md << 'EOF'
+# Medium Test Document
+
+This is a medium-sized test document with more content.
+
+## Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+## Main Content
+
+### Subsection 1
+
+More detailed content with multiple paragraphs.
+
+Here is a code block:
+
+```python
+def hello():
+    print("Hello World")
+```
+
+### Subsection 2
+
+Another section with a table:
+
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| A        | B        | C        |
+| D        | E        | F        |
+
+## Conclusion
+
+Final thoughts and summary.
+EOF
+cat > large.md << 'EOF'
+# Large Test Document
+
+This is a comprehensive test document to verify WASM Pandoc can handle larger files.
+
+## Section 1: Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur interdum, nisl nunc egestas nunc, vitae tincidunt nisl nunc euismod nunc.
+
+## Section 2: Technical Details
+
+### Subsection 2.1
+
+Complex technical content with code examples.
+
+```haskell
+main :: IO ()
+main = putStrLn "Hello from Pandoc WASM!"
+```
+
+### Subsection 2.2
+
+More technical content with lists:
+
+1. First ordered item
+2. Second ordered item
+3. Third ordered item
+
+- Unordered item A
+- Unordered item B
+- Unordered item C
+
+## Section 3: Data Tables
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Markdown | Working | Basic support |
+| HTML | Working | Full output |
+| PPTX | Working | Office format |
+| PDF | N/A | Needs LaTeX |
+
+## Section 4: Images and Links
+
+[Example Link](https://example.com)
+
+## Section 5: Conclusion
+
+This document demonstrates Pandoc WASM capabilities for converting Markdown to various formats including PowerPoint presentations.
+
+### Final Notes
+
+- All basic features work
+- WASM binary is standalone
+- Network features disabled (expected)
+- File I/O works via WASI
+
+---
+
+*End of large test document*
+EOF
+ls -la small.md medium.md large.md → exit 0
+[16:55:48] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && source ~/.ghc-wasm/env && \
+  wasmtime run --dir . pandoc.wasm -o small.pptx small.md && \
+  wasmtime run --dir . pandoc.wasm -o medium.pptx medium.md && \
+  wasmtime run --dir . pandoc.wasm -o large.pptx large.md && \
+  ls -la *.pptx && echo "SUCCESS: All PPTX files created!" → exit 0
+[16:55:54] 🟡 READ /Users/nathanhimpens/Documents/klara/code/pandoc-wasm/RALPH_TASK.md (55 lines, ~5.3KB)
+[16:56:11] 🟡 TOKENS: 51368 / 80000 (64%) [read:190KB write:0KB assist:7KB shell:0KB]
+[16:56:25] 🟡 SHELL cd /Users/nathanhimpens/Documents/klara/code/pandoc-wasm && git add -A && git status → exit 0

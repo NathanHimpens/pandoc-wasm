@@ -1,3 +1,5 @@
 # Ralph config (may contain API key)
 .cursor/ralph-config.json
 dist-newstyle/
+pandoc.wasm
+*.pptx
