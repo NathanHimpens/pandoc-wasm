@@ -13,7 +13,7 @@
 > **Ce projet est expérimental et constitue avant tout un travail de recherche.**
 
 - Les patches appliqués aux dépendances Haskell peuvent ne pas être parfaits et n'ont pas été audités de manière exhaustive
-- Ce projet peut ne pas convenir à tous les cas d'usage, notamment en production
+- Ce projet peut ne pas convenir à tous les cas d'usage
 - Les fichiers de travail de **Ralph** (agent IA) ont été volontairement conservés dans le dossier `.ralph/` pour montrer la méthodologie et le processus de développement
 - Le binaire résultant (166 MB) est optimisé pour la compatibilité WASI, pas pour la taille
 
