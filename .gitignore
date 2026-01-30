@@ -7,6 +7,13 @@ pandoc.wasm
 node_modules/
 package-lock.json
 
+# Ruby
+*.gem
+Gemfile.lock
+.bundle/
+vendor/
+pkg/
+
 # Generated documents
 *.pptx
 *.docx

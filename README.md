@@ -64,6 +64,50 @@ Le package nécessite que `pandoc.wasm` soit disponible dans une release GitHub.
 
 ---
 
+## Installation via RubyGems
+
+Pour utiliser `pandoc.wasm` comme dépendance dans vos projets Ruby/Rails :
+
+```bash
+gem install pandoc_wasm
+```
+
+Ou ajoutez-le à votre `Gemfile` :
+
+```ruby
+gem 'pandoc_wasm', '~> 1.0'
+```
+
+Le fichier `pandoc.wasm` sera automatiquement téléchargé depuis les [GitHub Releases](https://github.com/NathanHimpens/pandoc-wasm/releases) lors de la première utilisation (lazy loading).
+
+### Utilisation dans votre code Ruby
+
+```ruby
+require 'pandoc_wasm'
+
+# Obtenir le chemin vers pandoc.wasm
+pandoc_path = PandocWasm.path
+# => "/path/to/gems/pandoc_wasm-1.0.0/lib/pandoc_wasm/pandoc.wasm"
+
+# Utilisation avec wasmtime
+system("wasmtime run --dir . #{pandoc_path} -o output.pptx input.md")
+
+# Vérifier si pandoc.wasm est disponible
+if PandocWasm.available?
+  # Utiliser pandoc.wasm
+end
+```
+
+### Note importante
+
+La gem nécessite que `pandoc.wasm` soit disponible dans une release GitHub. Si aucune release n'existe encore, vous devrez :
+
+1. Compiler le binaire vous-même (voir section [HOW TO : Compiler soi-même](#how-to--compiler-soi-même))
+2. Créer une release GitHub avec `pandoc.wasm` en pièce jointe
+3. Ou copier manuellement le fichier dans le répertoire de la gem installée
+
+---
+
 ## Comment ça fonctionne
 
 ```mermaid
