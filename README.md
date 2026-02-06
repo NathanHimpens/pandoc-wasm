@@ -78,33 +78,35 @@ Ou ajoutez-le à votre `Gemfile` :
 gem 'pandoc_wasm', '~> 1.0'
 ```
 
-Le fichier `pandoc.wasm` sera automatiquement téléchargé depuis les [GitHub Releases](https://github.com/NathanHimpens/pandoc-wasm/releases) lors de la première utilisation (lazy loading).
-
 ### Utilisation dans votre code Ruby
 
 ```ruby
 require 'pandoc_wasm'
 
-# Obtenir le chemin vers pandoc.wasm
-pandoc_path = PandocWasm.path
-# => "/path/to/gems/pandoc_wasm-1.0.0/lib/pandoc_wasm/pandoc.wasm"
+# (Optionnel) Configurer le chemin du binaire et le runtime
+PandocWasm.binary_path = "/path/to/pandoc.wasm"
+PandocWasm.runtime = "wasmtime"  # par défaut
 
-# Utilisation avec wasmtime
-system("wasmtime run --dir . #{pandoc_path} -o output.pptx input.md")
+# Télécharger le binaire depuis GitHub Releases
+PandocWasm.download_to_binary_path!
+
+# Convertir un document (Markdown → PowerPoint)
+PandocWasm.run("input.md", "output.pptx", wasm_dir: ".")
+
+# Avec des arguments pandoc supplémentaires
+PandocWasm.run("input.md", "output.pptx", wasm_dir: ".", extra_args: ["--slide-level=2"])
 
 # Vérifier si pandoc.wasm est disponible
-if PandocWasm.available?
-  # Utiliser pandoc.wasm
-end
+PandocWasm.available?  # => true / false
 ```
 
 ### Note importante
 
-La gem nécessite que `pandoc.wasm` soit disponible dans une release GitHub. Si aucune release n'existe encore, vous devrez :
+La gem nécessite que `pandoc.wasm` soit disponible. Vous pouvez :
 
-1. Compiler le binaire vous-même (voir section [HOW TO : Compiler soi-même](#how-to--compiler-soi-même))
-2. Créer une release GitHub avec `pandoc.wasm` en pièce jointe
-3. Ou copier manuellement le fichier dans le répertoire de la gem installée
+1. Appeler `PandocWasm.download_to_binary_path!` pour le télécharger depuis une [GitHub Release](https://github.com/NathanHimpens/pandoc-wasm/releases)
+2. Compiler le binaire vous-même (voir section [HOW TO : Compiler soi-même](#how-to--compiler-soi-même))
+3. Ou copier manuellement le fichier et configurer le chemin avec `PandocWasm.binary_path =`
 
 ---
 
